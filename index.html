@@ -40,103 +40,112 @@
 
   <script>
     const preguntas = [
-      {
-        texto: "¿Qué pasos podemos citar en el proceso de un Proyecto de Software, pensando en Orientado a Objetos?",
-        opciones: [
-          { texto: "Análisis, Diseño, Implementación, Pruebas y Mantenimiento", correcta: true, explicacion: "Estos son los pasos típicos en un proyecto OO." },
-          { texto: "Relevamiento, Codificación, Entrega", correcta: false, explicacion: "Esos no cubren todo el proceso completo de OO." },
-          { texto: "Diseño gráfico, Desarrollo web, Publicación", correcta: false, explicacion: "Eso aplica más al desarrollo web que a OO específicamente." }
-        ]
-      },
-      {
-        texto: "¿Qué es un Caso de Uso?",
-        opciones: [
-          { texto: "Una descripción de las interacciones entre un actor y el sistema", correcta: true, explicacion: "Los casos de uso describen cómo un actor interactúa con el sistema para lograr un objetivo." },
-          { texto: "Una clase que representa un objeto", correcta: false, explicacion: "Eso sería una definición de clase, no de caso de uso." },
-          { texto: "Un atributo especial de una clase", correcta: false, explicacion: "Los casos de uso no son atributos." }
-        ]
-      },
-      {
-        texto: "¿Qué tipos de Casos de Uso conoce? Explique brevemente cada tipo.",
-        opciones: [
-          { texto: "Primarios y secundarios: los primarios son esenciales, los secundarios son complementarios.", correcta: false, explicacion: "Esa clasificación no es formal en UML." },
-          { texto: "Extendido, incluido y generalizado", correcta: true, explicacion: "Son tipos de relaciones entre casos de uso: include (incluir), extend (extender), generalización." },
-          { texto: "Iniciales, medios y finales", correcta: false, explicacion: "No es una clasificación válida de casos de uso." }
-        ]
-      },
-      {
-        texto: "¿Qué es una Clase?",
-        opciones: [
-          { texto: "Una plantilla que define atributos y comportamientos comunes de un conjunto de objetos", correcta: true, explicacion: "La clase es el molde a partir del cual se crean objetos." },
-          { texto: "Una instancia específica de un objeto", correcta: false, explicacion: "Eso sería un objeto, no una clase." },
-          { texto: "Una función que se ejecuta automáticamente", correcta: false, explicacion: "Eso sería un método constructor." }
-        ]
-      },
-      {
-        texto: "¿Qué es un Diagrama de Clases?",
-        opciones: [
-          { texto: "Una representación gráfica de las clases y sus relaciones", correcta: true, explicacion: "El diagrama de clases muestra cómo se conectan y relacionan las clases." },
-          { texto: "Un gráfico de secuencia de acciones del sistema", correcta: false, explicacion: "Eso describe un diagrama de secuencia, no de clases." },
-          { texto: "Un código que genera objetos automáticamente", correcta: false, explicacion: "Eso no es un diagrama de clases." }
-        ]
-      },
-      {
-        texto: "¿Qué es UML?",
-        opciones: [
-          { texto: "Lenguaje de modelado unificado utilizado para visualizar, especificar y documentar sistemas de software", correcta: true, explicacion: "UML es un lenguaje gráfico para modelar sistemas orientados a objetos." },
-          { texto: "Un lenguaje de programación como Java", correcta: false, explicacion: "UML no es un lenguaje de programación." },
-          { texto: "Una metodología ágil", correcta: false, explicacion: "UML no es una metodología, es un lenguaje de modelado." }
-        ]
-      },
-      {
-        texto: "¿Qué son los atributos y métodos que aparecen en una Clase?",
-        opciones: [
-          { texto: "Los atributos son las características del objeto y los métodos son sus comportamientos", correcta: true, explicacion: "Los atributos representan datos y los métodos las acciones." },
-          { texto: "Ambos son funciones internas que no se pueden modificar", correcta: false, explicacion: "Los atributos y métodos pueden modificarse y se utilizan para definir estructura y comportamiento." },
-          { texto: "Son constructores del sistema", correcta: false, explicacion: "Los constructores son métodos especiales, no todos los métodos lo son." }
-        ]
-      },
-      {
-        texto: "¿Qué es un Objeto?",
-        opciones: [
-          { texto: "Una instancia concreta de una clase", correcta: true, explicacion: "Un objeto es un ejemplar real creado a partir de una clase." },
-          { texto: "Una clase definida con atributos", correcta: false, explicacion: "Eso es una clase, no un objeto." },
-          { texto: "Un atributo complejo", correcta: false, explicacion: "Un objeto puede tener atributos, pero no es un atributo en sí." }
-        ]
-      },
-      {
-        texto: "Cuando en main por ejemplo creamos un Objeto: Perro perrito=new Perro(); ¿Qué es perrito? Justifique su respuesta.",
-        opciones: [
-          { texto: "Una referencia al objeto creado de la clase Perro", correcta: true, explicacion: "'perrito' es el nombre de la variable que referencia al nuevo objeto de tipo Perro." },
-          { texto: "Un método constructor", correcta: false, explicacion: "El constructor es 'new Perro()', no 'perrito'." },
-          { texto: "Una clase abstracta", correcta: false, explicacion: "No se está creando una clase abstracta, sino un objeto concreto." }
-        ]
-      },
-      {
-        texto: "Suponiendo que la clase Perro tiene dos atributos, nombre y color, haga el gráfico de la zona de datos de nuestro programa luego de la ejecución de la sentencia Perro perrito=new Perro();",
-        opciones: [
-          { texto: "No se puede mostrar en código HTML, pero se crean los atributos nombre y color en el objeto perrito", correcta: true, explicacion: "El objeto 'perrito' tendrá reservados espacios en memoria para nombre y color." },
-          { texto: "Se crea un método llamado nombre", correcta: false, explicacion: "nombre es un atributo, no un método." },
-          { texto: "Se crea una clase llamada color", correcta: false, explicacion: "color es un atributo del objeto, no una clase." }
-        ]
-      },
-      {
-        texto: "¿Para qué se utilizan los métodos setters y getters?",
-        opciones: [
-          { texto: "Para acceder y modificar los atributos privados de una clase", correcta: true, explicacion: "Setters y getters permiten encapsular el acceso a los atributos." },
-          { texto: "Para crear objetos", correcta: false, explicacion: "Los objetos se crean con constructores, no con setters o getters." },
-          { texto: "Para eliminar atributos", correcta: false, explicacion: "No se usan para eliminar atributos." }
-        ]
-      },
-      {
-        texto: "Explique qué son los métodos Constructores. ¿Cuándo se utilizan? ¿Cuántos tipos de Constructores existen y qué diferencia hay entre ellos?",
-        opciones: [
-          { texto: "Son métodos especiales que se ejecutan al crear un objeto. Pueden ser por defecto o parametrizados", correcta: true, explicacion: "Los constructores se usan al instanciar un objeto, y pueden tener o no parámetros." },
-          { texto: "Son funciones para eliminar objetos", correcta: false, explicacion: "Eso lo hace el recolector de basura, no un constructor." },
-          { texto: "Sirven para acceder a atributos privados", correcta: false, explicacion: "Eso lo hacen los getters y setters, no los constructores." }
-        ]
-      }
-    ];
+  {
+    "texto": "¿Qué pasos podemos citar en el proceso de un Proyecto de Software, pensando en Orientado a Objetos?",
+    "opciones": [
+      { "texto": "Análisis, Diseño, Implementación, Pruebas y Mantenimiento", "correcta": true, "explicacion": "Estos son los pasos típicos en un proyecto OO." },
+      { "texto": "Relevamiento, Codificación, Entrega", "correcta": false, "explicacion": "Esos no cubren todo el proceso completo de OO." },
+      { "texto": "Diseño gráfico, Desarrollo web, Publicación", "correcta": false, "explicacion": "Eso aplica más al desarrollo web que a OO específicamente." }
+    ]
+  },
+  {
+    "texto": "¿Qué es un Caso de Uso?",
+    "opciones": [
+      { "texto": "Una descripción de las interacciones entre un actor y el sistema", "correcta": true, "explicacion": "Los casos de uso describen cómo un actor interactúa con el sistema para lograr un objetivo." },
+      { "texto": "Una clase que representa un objeto", "correcta": false, "explicacion": "Eso sería una definición de clase, no de caso de uso." },
+      { "texto": "Un atributo especial de una clase", "correcta": false, "explicacion": "Los casos de uso no son atributos." }
+    ]
+  },
+  {
+    "texto": "¿Qué tipo de relación hay entre una clase y un objeto?",
+    "opciones": [
+      { "texto": "La clase es una función que ejecuta al objeto.", "correcta": false, "explicacion": "Una clase no es una función, es una estructura." },
+      { "texto": "El objeto es una instancia de la clase.", "correcta": true, "explicacion": "En C++, un objeto es una variable creada a partir del 'molde' que define una clase." },
+      { "texto": "El objeto contiene otras clases como atributos.", "correcta": false, "explicacion": "Podría contenerlas, pero no es una definición general de objeto-clase." }
+    ]
+  },
+  {
+    "texto": "¿Qué es una Clase?",
+    "opciones": [
+      { "texto": "Una plantilla que define atributos y comportamientos comunes de un conjunto de objetos", "correcta": true, "explicacion": "La clase es el molde a partir del cual se crean objetos." },
+      { "texto": "Una instancia específica de un objeto", "correcta": false, "explicacion": "Eso sería un objeto, no una clase." },
+      { "texto": "Una función que se ejecuta automáticamente", "correcta": false, "explicacion": "Eso sería un método constructor." }
+    ]
+  },
+  {
+    "texto": "¿Qué es un Diagrama de Clases?",
+    "opciones": [
+      { "texto": "Una representación gráfica de las clases y sus relaciones", "correcta": true, "explicacion": "El diagrama de clases muestra cómo se conectan y relacionan las clases." },
+      { "texto": "Un gráfico de secuencia de acciones del sistema", "correcta": false, "explicacion": "Eso describe un diagrama de secuencia, no de clases." },
+      { "texto": "Un código que genera objetos automáticamente", "correcta": false, "explicacion": "Eso no es un diagrama de clases." }
+    ]
+  },
+  {
+    "texto": "¿Qué es UML?",
+    "opciones": [
+      { "texto": "Lenguaje de modelado unificado utilizado para visualizar, especificar y documentar sistemas de software", "correcta": true, "explicacion": "UML es un lenguaje gráfico para modelar sistemas orientados a objetos." },
+      { "texto": "Un lenguaje de programación como Java", "correcta": false, "explicacion": "UML no es un lenguaje de programación." },
+      { "texto": "Una metodología ágil", "correcta": false, "explicacion": "UML no es una metodología, es un lenguaje de modelado." }
+    ]
+  },
+  {
+    "texto": "¿Qué son los atributos y métodos que aparecen en una Clase?",
+    "opciones": [
+      { "texto": "Los atributos son las características del objeto y los métodos son sus comportamientos", "correcta": true, "explicacion": "Los atributos representan datos y los métodos las acciones." },
+      { "texto": "Ambos son funciones internas que no se pueden modificar", "correcta": false, "explicacion": "Los atributos y métodos pueden modificarse y se utilizan para definir estructura y comportamiento." },
+      { "texto": "Son constructores del sistema", "correcta": false, "explicacion": "Los constructores son métodos especiales, no todos los métodos lo son." }
+    ]
+  },
+  {
+    "texto": "¿Qué es un Objeto?",
+    "opciones": [
+      { "texto": "Una instancia concreta de una clase", "correcta": true, "explicacion": "Un objeto es un ejemplar real creado a partir de una clase." },
+      { "texto": "Una clase definida con atributos", "correcta": false, "explicacion": "Eso es una clase, no un objeto." },
+      { "texto": "Un atributo complejo", "correcta": false, "explicacion": "Un objeto puede tener atributos, pero no es un atributo en sí." }
+    ]
+  },
+  {
+    "texto": "¿Qué representa la palabra clave 'this' en una clase?",
+    "opciones": [
+      { "texto": "Hace referencia al objeto actual dentro de la clase.", "correcta": true, "explicacion": "'this' permite acceder a los atributos y métodos del objeto que invoca el método actual." },
+      { "texto": "Es una función para inicializar objetos.", "correcta": false, "explicacion": "Inicializar objetos es tarea de los constructores, no de 'this'." },
+      { "texto": "Sirve para declarar variables globales.", "correcta": false, "explicacion": "'this' no tiene relación con variables globales." }
+    ]
+  },
+  {
+    "texto": "¿Qué sucede cuando no se define un constructor en una clase?",
+    "opciones": [
+      { "texto": "El compilador crea uno por defecto.", "correcta": true, "explicacion": "Si no se define ningún constructor, C++ genera uno por defecto sin parámetros." },
+      { "texto": "El programa no compila.", "correcta": false, "explicacion": "El compilador sí crea uno automáticamente si no se define otro." },
+      { "texto": "Se crea un destructor por defecto.", "correcta": false, "explicacion": "El constructor y el destructor son conceptos distintos." }
+    ]
+  },
+  {
+    "texto": "¿Qué representa 'new' en C++?",
+    "opciones": [
+      { "texto": "Crea un objeto en memoria dinámica (heap).", "correcta": true, "explicacion": "'new' reserva memoria dinámica y llama al constructor." },
+      { "texto": "Copia una clase existente.", "correcta": false, "explicacion": "'new' no copia clases, sino que crea instancias." },
+      { "texto": "Convierte un tipo de dato en otro.", "correcta": false, "explicacion": "Eso lo hacen los casteos, no 'new'." }
+    ]
+  },
+  {
+    "texto": "¿Qué visibilidad indica el modificador 'private' en un atributo?",
+    "opciones": [
+      { "texto": "Que solo es accesible dentro de la clase.", "correcta": true, "explicacion": "Los miembros privados solo se pueden acceder desde dentro de la clase." },
+      { "texto": "Que puede ser accedido desde cualquier parte del código.", "correcta": false, "explicacion": "Eso corresponde a 'public'." },
+      { "texto": "Que solo los objetos pueden leerlo.", "correcta": false, "explicacion": "La visibilidad se refiere al acceso por parte de funciones o clases, no a lectura o escritura solamente." }
+    ]
+  },
+  {
+    "texto": "¿Cuál de estas opciones define correctamente un constructor en C++?",
+    "opciones": [
+      { "texto": "Persona() {}", "correcta": true, "explicacion": "El constructor no tiene tipo de retorno y se llama igual que la clase." },
+      { "texto": "void Persona() {}", "correcta": false, "explicacion": "No debe tener tipo de retorno, ni siquiera void." },
+      { "texto": "public void Persona(string nombre)", "correcta": false, "explicacion": "Esa sintaxis es de Java, no de C++." }
+    ]
+  }
+]
+;
 
     const contenedor = document.getElementById("cuestionario");
 
