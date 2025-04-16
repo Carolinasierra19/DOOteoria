@@ -199,7 +199,89 @@
             "explicacion": "El análisis y el diseño son etapas distintas y preceden a la programación."
           }
         ]
-      }
+      }, 
+      {
+  "texto": "¿Qué es un getter en una clase?",
+  "opciones": [
+    {
+      "texto": "Es un método que permite obtener el valor de un atributo privado.",
+      "correcta": true,
+      "explicacion": "El getter devuelve el valor de un atributo, respetando el principio de encapsulamiento."
+    },
+    {
+      "texto": "Es una función que modifica directamente un atributo.",
+      "correcta": false,
+      "explicacion": "Eso lo hace un setter, no un getter."
+    },
+    {
+      "texto": "Es un atributo público de tipo texto.",
+      "correcta": false,
+      "explicacion": "Un getter no es un atributo, es un método."
+    }
+  ]
+}, 
+      {
+  "texto": "¿Cuál es la forma correcta de programar un getter en C++ para el atributo edad?",
+  "opciones": [
+    {
+      "texto": "int getEdad() { return edad; }",
+      "correcta": true,
+      "explicacion": "Este método retorna el valor del atributo 'edad', que se supone es privado."
+    },
+    {
+      "texto": "void getEdad(int e) { edad = e; }",
+      "correcta": false,
+      "explicacion": "Esa estructura corresponde a un setter, no a un getter."
+    },
+    {
+      "texto": "getEdad() => edad;",
+      "correcta": false,
+      "explicacion": "Esa no es una sintaxis válida en C++."
+    }
+  ]
+},
+      {
+  "texto": "¿Qué es un setter en una clase?",
+  "opciones": [
+    {
+      "texto": "Es un método que permite asignar un valor a un atributo privado.",
+      "correcta": true,
+      "explicacion": "El setter modifica el valor de un atributo respetando el encapsulamiento."
+    },
+    {
+      "texto": "Es una variable que guarda una función.",
+      "correcta": false,
+      "explicacion": "No es una variable, es un método."
+    },
+    {
+      "texto": "Es un constructor especial.",
+      "correcta": false,
+      "explicacion": "Los setters no son constructores, son funciones específicas para modificar atributos."
+    }
+  ]
+},
+      {
+  "texto": "¿Cuál es la forma correcta de programar un setter en C++ para el atributo edad?",
+  "opciones": [
+    {
+      "texto": "void setEdad(int e) { edad = e; }",
+      "correcta": true,
+      "explicacion": "Este método permite modificar el atributo 'edad' desde fuera de la clase."
+    },
+    {
+      "texto": "setEdad(int e) => edad = e;",
+      "correcta": false,
+      "explicacion": "No es una sintaxis válida en C++."
+    },
+    {
+      "texto": "void edad(int e); return e;",
+      "correcta": false,
+      "explicacion": "La sintaxis está mal estructurada y no define un método correctamente."
+    }
+  ]
+}
+
+
     ];
 
     const contenedor = document.getElementById("cuestionario");
