@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Preguntas de Diseño OO</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .pregunta {
+      margin-bottom: 30px;
+    }
+    .opcion {
+      display: block;
+      margin: 8px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .correcta {
+      background-color: #c8e6c9;
+      border-color: #2e7d32;
+    }
+    .incorrecta {
+      background-color: #ffcdd2;
+      border-color: #c62828;
+    }
+    .explicacion {
+      margin-top: 10px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1>Preguntas de Diseño Orientado a Objetos</h1>
+
+  <div id="cuestionario"></div>
+
+  <script>
+    const preguntas = [
+      {
+        texto: "¿Qué pasos podemos citar en el proceso de un Proyecto de Software, pensando en Orientado a Objetos?",
+        opciones: [
+          { texto: "Análisis, Diseño, Implementación, Pruebas y Mantenimiento", correcta: true, explicacion: "Estos son los pasos típicos en un proyecto OO." },
+          { texto: "Relevamiento, Codificación, Entrega", correcta: false, explicacion: "Esos no cubren todo el proceso completo de OO." },
+          { texto: "Diseño gráfico, Desarrollo web, Publicación", correcta: false, explicacion: "Eso aplica más al desarrollo web que a OO específicamente." }
+        ]
+      },
+      {
+        texto: "¿Qué es un Caso de Uso?",
+        opciones: [
+          { texto: "Una descripción de las interacciones entre un actor y el sistema", correcta: true, explicacion: "Los casos de uso describen cómo un actor interactúa con el sistema para lograr un objetivo." },
+          { texto: "Una clase que representa un objeto", correcta: false, explicacion: "Eso sería una definición de clase, no de caso de uso." },
+          { texto: "Un atributo especial de una clase", correcta: false, explicacion: "Los casos de uso no son atributos." }
+        ]
+      },
+      {
+        texto: "¿Qué tipos de Casos de Uso conoce? Explique brevemente cada tipo.",
+        opciones: [
+          { texto: "Primarios y secundarios: los primarios son esenciales, los secundarios son complementarios.", correcta: false, explicacion: "Esa clasificación no es formal en UML." },
+          { texto: "Extendido, incluido y generalizado", correcta: true, explicacion: "Son tipos de relaciones entre casos de uso: include (incluir), extend (extender), generalización." },
+          { texto: "Iniciales, medios y finales", correcta: false, explicacion: "No es una clasificación válida de casos de uso." }
+        ]
+      },
+      {
+        texto: "¿Qué es una Clase?",
+        opciones: [
+          { texto: "Una plantilla que define atributos y comportamientos comunes de un conjunto de objetos", correcta: true, explicacion: "La clase es el molde a partir del cual se crean objetos." },
+          { texto: "Una instancia específica de un objeto", correcta: false, explicacion: "Eso sería un objeto, no una clase." },
+          { texto: "Una función que se ejecuta automáticamente", correcta: false, explicacion: "Eso sería un método constructor." }
+        ]
+      },
+      {
+        texto: "¿Qué es un Diagrama de Clases?",
+        opciones: [
+          { texto: "Una representación gráfica de las clases y sus relaciones", correcta: true, explicacion: "El diagrama de clases muestra cómo se conectan y relacionan las clases." },
+          { texto: "Un gráfico de secuencia de acciones del sistema", correcta: false, explicacion: "Eso describe un diagrama de secuencia, no de clases." },
+          { texto: "Un código que genera objetos automáticamente", correcta: false, explicacion: "Eso no es un diagrama de clases." }
+        ]
+      },
+      {
+        texto: "¿Qué es UML?",
+        opciones: [
+          { texto: "Lenguaje de modelado unificado utilizado para visualizar, especificar y documentar sistemas de software", correcta: true, explicacion: "UML es un lenguaje gráfico para modelar sistemas orientados a objetos." },
+          { texto: "Un lenguaje de programación como Java", correcta: false, explicacion: "UML no es un lenguaje de programación." },
+          { texto: "Una metodología ágil", correcta: false, explicacion: "UML no es una metodología, es un lenguaje de modelado." }
+        ]
+      },
+      {
+        texto: "¿Qué son los atributos y métodos que aparecen en una Clase?",
+        opciones: [
+          { texto: "Los atributos son las características del objeto y los métodos son sus comportamientos", correcta: true, explicacion: "Los atributos representan datos y los métodos las acciones." },
+          { texto: "Ambos son funciones internas que no se pueden modificar", correcta: false, explicacion: "Los atributos y métodos pueden modificarse y se utilizan para definir estructura y comportamiento." },
+          { texto: "Son constructores del sistema", correcta: false, explicacion: "Los constructores son métodos especiales, no todos los métodos lo son." }
+        ]
+      },
+      {
+        texto: "¿Qué es un Objeto?",
+        opciones: [
+          { texto: "Una instancia concreta de una clase", correcta: true, explicacion: "Un objeto es un ejemplar real creado a partir de una clase." },
+          { texto: "Una clase definida con atributos", correcta: false, explicacion: "Eso es una clase, no un objeto." },
+          { texto: "Un atributo complejo", correcta: false, explicacion: "Un objeto puede tener atributos, pero no es un atributo en sí." }
+        ]
+      },
+      {
+        texto: "Cuando en main por ejemplo creamos un Objeto: Perro perrito=new Perro(); ¿Qué es perrito? Justifique su respuesta.",
+        opciones: [
+          { texto: "Una referencia al objeto creado de la clase Perro", correcta: true, explicacion: "'perrito' es el nombre de la variable que referencia al nuevo objeto de tipo Perro." },
+          { texto: "Un método constructor", correcta: false, explicacion: "El constructor es 'new Perro()', no 'perrito'." },
+          { texto: "Una clase abstracta", correcta: false, explicacion: "No se está creando una clase abstracta, sino un objeto concreto." }
+        ]
+      },
+      {
+        texto: "Suponiendo que la clase Perro tiene dos atributos, nombre y color, haga el gráfico de la zona de datos de nuestro programa luego de la ejecución de la sentencia Perro perrito=new Perro();",
+        opciones: [
+          { texto: "No se puede mostrar en código HTML, pero se crean los atributos nombre y color en el objeto perrito", correcta: true, explicacion: "El objeto 'perrito' tendrá reservados espacios en memoria para nombre y color." },
+          { texto: "Se crea un método llamado nombre", correcta: false, explicacion: "nombre es un atributo, no un método." },
+          { texto: "Se crea una clase llamada color", correcta: false, explicacion: "color es un atributo del objeto, no una clase." }
+        ]
+      },
+      {
+        texto: "¿Para qué se utilizan los métodos setters y getters?",
+        opciones: [
+          { texto: "Para acceder y modificar los atributos privados de una clase", correcta: true, explicacion: "Setters y getters permiten encapsular el acceso a los atributos." },
+          { texto: "Para crear objetos", correcta: false, explicacion: "Los objetos se crean con constructores, no con setters o getters." },
+          { texto: "Para eliminar atributos", correcta: false, explicacion: "No se usan para eliminar atributos." }
+        ]
+      },
+      {
+        texto: "Explique qué son los métodos Constructores. ¿Cuándo se utilizan? ¿Cuántos tipos de Constructores existen y qué diferencia hay entre ellos?",
+        opciones: [
+          { texto: "Son métodos especiales que se ejecutan al crear un objeto. Pueden ser por defecto o parametrizados", correcta: true, explicacion: "Los constructores se usan al instanciar un objeto, y pueden tener o no parámetros." },
+          { texto: "Son funciones para eliminar objetos", correcta: false, explicacion: "Eso lo hace el recolector de basura, no un constructor." },
+          { texto: "Sirven para acceder a atributos privados", correcta: false, explicacion: "Eso lo hacen los getters y setters, no los constructores." }
+        ]
+      }
+    ];
+
+    const contenedor = document.getElementById("cuestionario");
+
+    preguntas.forEach((pregunta, index) => {
+      const divPregunta = document.createElement("div");
+      divPregunta.className = "pregunta";
+
+      const enunciado = document.createElement("h3");
+      enunciado.textContent = `${index + 1}) ${pregunta.texto}`;
+      divPregunta.appendChild(enunciado);
+
+      pregunta.opciones.forEach(opcion => {
+        const btn = document.createElement("div");
+        btn.className = "opcion";
+        btn.textContent = opcion.texto;
+        btn.onclick = () => {
+          if (btn.classList.contains("correcta") || btn.classList.contains("incorrecta")) return;
+
+          if (opcion.correcta) {
+            btn.classList.add("correcta");
+          } else {
+            btn.classList.add("incorrecta");
+          }
+
+          const exp = document.createElement("div");
+          exp.className = "explicacion";
+          exp.textContent = opcion.explicacion;
+          btn.after(exp);
+        };
+
+        divPregunta.appendChild(btn);
+      });
+
+      contenedor.appendChild(divPregunta);
+    });
+  </script>
+</body>
+</html>
